@@ -29,6 +29,12 @@ app.use('/css',express.static(path.resolve(__dirname,"assets/css")))
 app.use('/img',express.static(path.resolve(__dirname,"assets/img")))
 app.use('/js',express.static(path.resolve(__dirname,"assets/js")))
 
+// Middleware to pass environment variable to all templates
+app.use((req, res, next) => {
+    res.locals.environment = process.env.ENVIRONMENT;
+    next();
+});
+
 //load routes
 app.use('/',require('./server/routes/router'))
 
