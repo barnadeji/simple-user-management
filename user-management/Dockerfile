@@ -1,6 +1,4 @@
-ARG NODE_VERSION=18.13.0
-
-FROM node:${NODE_VERSION}-alpine
+FROM node:18.13.0-alpine
 
 ENV ENVIRONMENT=""
 
